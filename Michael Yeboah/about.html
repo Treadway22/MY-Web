@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Michael Yeboah</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Text Reveal Effect Styles */
+        .reveal {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Slightly move down */
+            transition: opacity 2.0s ease-out, transform 2.0s ease-out; /* Animation properties */
+        }
+
+        .reveal.visible {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Move back to original position */
+        }
+    </style>
+
+    <script>
+        // Theme switching functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        }
+
+        // Set theme on page load based on system preference
+        function setThemeOnLoad() {
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            document.documentElement.setAttribute('data-theme', prefersDarkScheme.matches ? 'dark' : 'light');
+        }
+        
+        // Call the function on page load
+        window.onload = setThemeOnLoad;
+
+        // Text Reveal Effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <h1>Michael Yeboah</h1> <!-- Your name -->
+        </div>
+        <ul class="nav-right">
+            <li><a href="index.html" class="nav-link"><b>Home</b></a></li>
+            <li><a href="about.html" class="nav-link"><b>About</b></a></li>
+            <li class="">
+                <a href="portfolio.html" class="nav-link dropbtn"><b>Portfolio</b></a>
+                
+            </li>
+            <li><a href="contact.html" class="nav-link"><b>Contact</b></a></li>
+        </ul>
+        <div class="nav-social-media">
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </nav>
+
+    <!-- Full-Screen About Section -->
+    <section class="full-screen">
+        <div class="intro-text">
+            <h2 class="reveal">Welcome to My Portfolio</h2>
+            <a href="#about-content" class="reveal">Discover More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-content" class="about-section">
+        <h3 class="reveal">About Me</h3>
+        <div class="about-content">
+            <p class="reveal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Cras venenatis euismod malesuada.</p>
+        </div>
+
+        <!-- Skills Section -->
+        <h3 class="reveal">My Skills</h3>
+        <div class="skills">
+            <div class="skill reveal">HTML</div>
+            <div class="skill reveal">CSS</div>
+            <div class="skill reveal">JavaScript</div>
+        </div>
+
+        <!-- Certificates Section -->
+        <h3 class="reveal">My Certificates</h3>
+        <div class="certificates">
+            <div class="certificate reveal">Certificate 1</div>
+            <div class="certificate reveal">Certificate 2</div>
+        </div>
+    </section>
+
+    <!-- Social Media Section Beneath the Page -->
+    <section class="social-media-section">
+        <h3 class="reveal">Connect with Me</h3>
+        <div class="social-media">
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Michael Yeboah. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) { // Adjust '100' to your desired scroll distance
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <body>
+        <!-- Your existing content -->
+    
+        <script>
+            // JavaScript for text reveal effect
+            document.addEventListener('scroll', function() {
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(reveal => {
+                    const windowHeight = window.innerHeight;
+                    const revealTop = reveal.getBoundingClientRect().top;
+                    if (revealTop < windowHeight - 100) { // Trigger when close to view
+                        reveal.classList.add('visible'); // Add the visible class
+                    } else {
+                        reveal.classList.remove('visible'); // Optionally remove class
+                    }
+                });
+            });
+        </script>
+    </body>
+    
+</body>
+</html>

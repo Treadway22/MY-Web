@@ -1,0 +1,736 @@
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for internal links */
+}
+
+body {
+    font-family: 'Quicksand', Helvetica, sans-serif; /* Stylish font */
+    color: var(--text-color); /* Text color based on theme */
+    background-color: var(--background-color); /* Background color based on theme */
+    font-size: 12px;
+}
+
+/* Theme Variables */
+:root {
+    --text-color: rgb(0, 0, 0); /* Default text color for light theme */
+    --background-color: #ffffff; /* Default background for light theme */
+}
+
+[data-theme="dark"] {
+    --text-color: rgb(255, 250, 250); /* Text color for dark theme */
+    --background-color: #121212; /* Dark background */
+}
+
+/* Navigation Bar Styles */
+
+.navbar {
+    position: fixed; /* Keep the navbar fixed at the top */
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0); /* Transparent initially */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between left and right elements */
+    align-items: center; /* Center vertically */
+    padding: 20px 40px; /* Padding for the navbar */
+    z-index: 10; /* Ensure it stays above other elements */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scroll effect */
+}
+
+/* Style after scrolling */
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 1); /* White background on scroll */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+}
+
+.nav-left h1 {
+    font-family: 'Quicksand';
+    font-size: 1.5em; /* Font size for your name */
+    letter-spacing: 0px; /* Spacing between letters */
+    font-weight: 2000;
+    color: var(--text-color); /* Use theme text color */
+}
+
+.navbar.scrolled .nav-left h1 {
+    color: black; /* Change color on scroll */
+}
+
+.nav-right {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Display links in a row */
+    gap: 10px; /* Space between links */
+}
+
+.nav-right li {
+    position: relative;
+}
+
+.nav-right li a {
+    padding: 5px 10px; /* Padding around the link */
+    display: block; /* Make the link a block element */
+    font-size: 16px; /* Font size */
+    text-transform: uppercase; /* Uppercase text */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    color: var(--text-color); /* Light text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-right li a:hover {
+    color: #00B4D8; /* Change text color on hover */
+}
+
+.navbar.scrolled .nav-right li a {
+    color: black; /* Change text color on scroll */
+}
+
+/* Dropdown Menu Styling */
+.dropdown-content {
+    display: none; /* Hide dropdown content initially */
+    position: absolute;
+    background-color: rgba(76, 126, 135, 0.9); /* Background for dropdown */
+    min-width: 160px; /* Set minimum width */
+    z-index: 1;
+    top: 100%; /* Position below the Portfolio link */
+    left: 0; /* Align with the link */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.dropdown-content a {
+    color: #000000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #00B4D8; /* Background color on hover */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Display the dropdown on hover */
+}
+
+/* Social Media Icons near Navigation */
+.nav-social-media {
+    display: flex; /* Align icons in a row */
+    gap: 15px; /* Space between icons */
+}
+
+.social-icon {
+    color: var(--text-color); /* Icon color */
+    font-size: 24px; /* Size of the icons */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar.scrolled .social-icon {
+    color: black; /* Change icon color on scroll */
+}
+
+.social-icon:hover {
+    color: #00B4D8; /* Change color on hover */
+}
+
+/* Full-Screen Home Section */
+.full-screen {
+    height: 70vh; /* Full height of the viewport */
+    background-image: url('/Images/pexels-wisdomsky-1673973.jpg') no-repeat center center/cover; /* Background image */
+    display: flex; /* Center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative;
+    text-align: center; /* Center text */
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-text {
+    z-index: 2; /* Position in front of overlay */
+    font-size: 16px;
+    font-family: Quicksand;
+
+    color: var(--text-color); /* Text color */
+}
+
+.intro-text h2 {
+    font-size: 3.0em; /* Size for the subtitle */
+    margin-top: 50px; /* Space below the title */
+    font-family: Quicksand;
+}
+
+.btn {
+    display: inline-block; /* Make it inline-block */
+    padding: 10px 20px; /* Padding around button */
+    background: #00c4ec; /* Button background color */
+    color: white; /* Button text color */
+    text-transform: uppercase; /* Uppercase text */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+    text-decoration: none; /* Remove underline */
+    margin-top: 500px;
+}
+
+.btn:hover {
+    background-color: #0077B6; /* Change button color on hover */
+}
+
+/* Picture Section */
+#picture-section {
+    text-align: center;
+    margin: 50px 0;
+    color: var(--text-color); /* Text color based on theme */
+}
+
+.picture-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular image */
+    border: 5px solid #00B4D8; /* Border around the image */
+}
+
+/* Social Media Section Beneath the Page */
+.social-media-section {
+    text-align: center;
+    padding: 0px;
+}
+
+.social-media-section h3 {
+    color: rgb(0, 217, 255);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+footer {
+    padding: 20px; /* Padding for footer */
+    background-color: #00B4D8; /* Footer background color */
+    text-align: center; /* Center text */
+    margin-top: 40px; /* Space above footer */
+}
+
+/* About Me Section Styles */
+
+.about-section {
+    background-color: white; /* White background */
+    color: black; /* Black text color */
+    padding: 50px; /* Padding for the section */
+    text-align: center; /* Center text */
+    
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    z-index: 999;
+}
+
+.navbar.scrolled {
+    background-color: #333; /* or whatever background color you want when scrolling */
+}
+
+.nav-right a {
+    text-decoration: none;
+    font-weight: bold; /* To ensure the bold font on navigation links */
+}
+
+.full-screen {
+    height: 100vh;
+    background: url('your-background-image.jpg') no-repeat center center/cover;
+}
+
+.btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.about-section {
+    padding: 50px;
+}
+
+.about-content {
+    margin: 0 auto; /* Center the content */
+    max-width: 800px; /* Maximum width for content */
+}
+
+h3 {
+    margin-bottom: 30px; /* Space below the heading */
+}
+
+.skills, .certificates {
+    display: flex; /* Align skills/certificates in a row */
+    justify-content: center; /* Center content */
+    gap: 100px; /* Space between items */
+}
+
+.skill, .certificate {
+    background: #f1f1f1; /* Light background for items */
+    padding: 100px; /* Padding around items */
+    border-radius: 10px; /* Rounded corners */
+    width: 500px; /* Width of items */
+    text-align: left; /* Center text */
+}
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', Helvetica, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0); /* Transparent background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 10;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Logo and Name */
+.nav-left h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+.nav-link.active {
+    color: #ff5722; /* Change this color to whatever fits your design */
+    font-weight: bold;
+}
+
+/* Navbar Scrolled */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 1); /* White on scroll */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled .nav-left h1 {
+    color: black;
+}
+
+/* Navigation Links */
+.nav-right {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right li {
+    position: relative;
+}
+
+.nav-right li a {
+    padding: 5px 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-right li a:hover {
+    color: #00B4D8;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(76, 126, 135, 0.9);
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #000;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 0px 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+.nav-link.active {
+    color: #ff5722; /* Change this color to whatever fits your design */
+    font-weight: bold;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 0px;
+
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Portfolio Image */
+.portfolio-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Portfolio Content */
+.portfolio-content {
+    margin-top: 15px;
+}
+
+.portfolio-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.portfolio-content p {
+    font-size: 16px;
+    color: #333333;
+}
+
+/* Social Media Icons */
+.nav-social-media {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: var(--text-color);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #00B4D8;
+}
+
+
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .skills, .certificates {
+        flex-direction: column; /* Stack items on smaller screens */
+        align-items: center; /* Center items */
+    }
+}
+/* Full-Screen Section */
+.full-screen {
+    height: 70vh; /* Height of the section */
+    background: url('/Images/your-picture.jpg') no-repeat center center/cover; /* Adjust as needed */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-text {
+    z-index: 2; /* Ensure text is above the overlay */
+    color: white; /* Text color */
+  margin-top: 500px;
+}
+
+/* Contact Form Styles */
+#contact-section {
+    padding: 0px;
+    background-color: white;
+    text-align: center;
+}
+textarea {
+    resize: none; /* This disables the ability to resize the textarea */
+}
+
+h3 {
+    margin-bottom: 50px;
+    font-weight: bold;
+}.form-group {
+    margin-bottom: 15px; /* Adjust this to control spacing between form elements */
+}
+
+#message {
+    margin-bottom: 5px; /* Reduced bottom margin for the textarea */
+}
+
+.btn {
+    margin-top: 0; /* Ensure no top margin on the button */
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    .nav-link.active {
+        color: #ff5722; /* Change this color to whatever fits your design */
+        font-weight: bold;
+    }
+    
+}
+
+input, textarea {
+    width: 30%;
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+}
+
+.btn {
+    padding: 20px 30px;
+    background: #00c4ec;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: Quicksand;
+}
+
+.btn:hover {
+    background-color: #0077B6; /* Change color on hover */
+}
+
+/* Social Media Section */
+.social-media-section {
+    text-align: center;
+    padding: 30px;
+}
+
+.social-icon {
+    font-size: 30px;
+    margin: 0 10px;
+}
+
+/* For screens smaller than 768px (e.g., tablets and small laptops) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px; /* Reduce padding for smaller screens */
+    }
+
+    .nav-right {
+        gap: 10px; /* Reduce space between navigation links */
+    }
+
+    .intro-text h2 {
+        font-size: 2em; /* Reduce title size */
+    }
+
+    .btn {
+        padding: 10px 15px; /* Smaller button padding */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* More compact grid */
+    }
+
+    .social-icon {
+        font-size: 20px; /* Reduce icon size */
+    }
+
+    /* Adjust form input and textarea width */
+    input, textarea {
+        width: 100%; /* Full width input fields */
+        padding: 10px; /* Adjust padding */
+    }
+}
+
+/* For screens smaller than 576px (e.g., smartphones) */
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column; /* Stack navbar elements */
+        align-items: flex-start; /* Align navbar items to the left */
+    }
+
+    .nav-right {
+        flex-direction: column; /* Stack nav items */
+        gap: 5px; /* Smaller gap */
+    }
+
+    .full-screen {
+        height: 50vh; /* Shorter full-screen section */
+    }
+
+    .intro-text h2 {
+        font-size: 1.5em; /* Smaller heading size */
+    }
+
+    .btn {
+        padding: 8px 12px; /* Smaller button */
+        font-size: 14px; /* Smaller text */
+    }
+
+    .skills, .certificates {
+        flex-direction: column; /* Stack items vertically */
+        gap: 20px; /* Adjust gap */
+    }
+
+    .social-media {
+        flex-direction: column; /* Stack social icons */
+        gap: 10px; /* Reduce gap between icons */
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px; /* Smaller profile picture */
+    }
+
+    .about-content {
+        padding: 20px; /* Adjust padding */
+    }
+}
+@media (max-width: 768px) {
+    footer {
+        padding: 10px; /* Smaller padding */
+    }
+
+    .social-media-section {
+        flex-direction: column; /* Stack social media icons */
+        gap: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .full-screen {
+        height: 50vh; /* Shorter section on mobile */
+    }
+    
+    .intro-text h2 {
+        font-size: 2em; /* Smaller text */
+    }
+}
+
+@media (max-width: 576px) {
+    .full-screen {
+        height: 40vh;
+    }
+
+    .intro-text h2 {
+        font-size: 1.5em; /* Smaller heading size */
+    }
+}
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 0px;
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Compact grid */
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* More compact grid */
+    }
+}
+/* Default state (no underline until hover when scrolled) */
+.nav-right li a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    margin: 0 auto;
+    background: #000; /* Color of the line */
+    transition: width 0.4s ease; /* Adjust the speed as you like */
+}
+
+/* Hover effect to expand from center */
+.scrolled .nav-right li a:hover::after {
+    width: 100%; /* Make the underline span the full width */
+}
+
+/* When not scrolled, hovering will have no effect */
+.nav-right li a:hover::after {
+    width: 0;
+}
+
+.scrolled {
+    background-color: #f0f0f0; /* Make this color noticeable */
+}

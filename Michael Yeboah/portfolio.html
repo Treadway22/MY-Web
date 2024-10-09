@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Michael Yeboah | Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure the path is correct -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script>
+        // Theme switching functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        }
+
+        // Set theme on page load based on system preference
+        function setThemeOnLoad() {
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            document.documentElement.setAttribute('data-theme', prefersDarkScheme.matches ? 'dark' : 'light');
+        }
+
+        // Call the function on page load
+        window.onload = setThemeOnLoad;
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <h1>Michael Yeboah</h1>
+        </div>
+      <ul class="nav-right">
+        <li><a href="index.html" class="nav-link"><b>Home</b></a></li>
+    <li><a href="about.html" class="nav-link" id="about-link"><b>About</b></a></li>
+    <li class="dropdown">
+        <a href="portfolio.html" class="nav-link dropbtn" id="portfolio-link"><b>Portfolio</b></a>
+        <div class="">
+            
+        </div>
+    </li>
+    <li><a href="contact.html" class="nav-link" id="contact-link"><b>Contact</b></a></li>
+</ul>
+
+        <div class="nav-social-media">
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </nav>
+    
+    <!-- Full-Screen Home Section -->
+    <section class="full-screen">
+        <div class="intro-text">
+            <a href="#about-content" class=""></a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <h2 class="section-title">My Portfolio</h2>
+        <div class="portfolio-grid">
+            <!-- Portfolio Items -->
+            <div class="portfolio-item">
+                <img src="/Images/pexels-polina-zimmerman-3747266.jpg" alt="Project 1" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Project Title 1</h3>
+                    <p>Brief description of project 1.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="/Images/Michael Yeboah.jpg" alt="Project 2" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Project Title 2</h3>
+                    <p>Brief description of project 2.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="/Images/pexels-wisdomsky-1673973.jpg" alt="Project 3" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Project Title 3</h3>
+                    <p>Brief description of project 3.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="/Images/pexels-asadphoto-1456291.jpg" alt="Project 4" class="portfolio-image">
+                <div class="portfolio-content">
+                    <h3>Project Title 4</h3>
+                    <p>Brief description of project 4.</p>
+                </div>
+            </div>
+            
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="social-media-section">
+        <h3>Connect with me</h3>
+        <div class="social-media">
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Michael Yeboah. All Rights Reserved.</p>
+    </footer>
+
+    <button onclick="toggleTheme()">Toggle Theme</button> <!-- Theme toggle button -->
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY === 0) {
+                navbar.classList.remove('scrolled');
+            } else {
+                navbar.classList.add('scrolled');
+            }
+        });
+    </script>
+    <script>
+        // Highlight the active page in the navigation
+        const currentPage = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+   
+
+    <body>
+        <!-- Your existing content -->
+    
+        <script>
+            // JavaScript for text reveal effect
+            document.addEventListener('scroll', function() {
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(reveal => {
+                    const windowHeight = window.innerHeight;
+                    const revealTop = reveal.getBoundingClientRect().top;
+                    if (revealTop < windowHeight - 100) { // Trigger when close to view
+                        reveal.classList.add('visible'); // Add the visible class
+                    } else {
+                        reveal.classList.remove('visible'); // Optionally remove class
+                    }
+                });
+            });
+        </script>
+    </body>
+    
+</body>
+</html>
